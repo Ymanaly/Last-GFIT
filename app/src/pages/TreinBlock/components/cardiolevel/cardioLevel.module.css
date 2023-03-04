@@ -1,0 +1,139 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter&family=Readex+Pro&display=swap') */
+  .CardioLevelСontainer {
+    width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .CardioLevel {
+    background-image: url('./cardioLevelImages/basic.background.svg');
+    background-size: 100%;
+  }
+  
+  .cardioText h2 {
+    padding-top: 36px;
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    text-align: center;
+    line-height: 48px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  
+  .cardioCards {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    margin-top: 47px;
+    justify-content: right;
+    background: url('./cardioLevelImages/img1.png') no-repeat center/cover;
+    backdrop-filter: rgba(0, 0, 0, 0.5);
+  }
+  .img2 {
+    background: url('./cardioLevelImages/img2.png') no-repeat center/cover;
+    backdrop-filter: rgba(0, 0, 0, 0.5);
+  }
+  .img3 {
+    background: url('./cardioLevelImages/img3.png') no-repeat center/cover;
+    backdrop-filter: rgba(0, 0, 0, 0.5);
+  }
+  .cardioCards::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .cardioCard {
+    display: block;
+    border-left: 2px dashed black;
+    width: 440px;
+    height: 557px;
+    transition: 0.4s;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cardioCard h3 {
+    width: 292px;
+    /* font-family: 'Inter'; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+    color: #404140;
+    opacity: 0;
+  }
+  .cardioCard:first-child {
+    border: none;
+  }
+  .cardioCardTarget {
+    background: rgba(217, 217, 217, 0.6);
+    backdrop-filter: brightness(215%);
+  }
+  .cardioCardTarget h3{
+      opacity: 1;
+  }
+  
+
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 18px;
+    padding-bottom: 70px;
+  }
+
+  .btnJun{
+    width: 379.5px;
+    height: 67.88px;
+    background: #898989;
+    border-radius: 25.875px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0px 3.45px 4.3125px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34.5px;
+    line-height: 42px;
+  }
+
+  .btnJun:hover{
+    
+  }
+
+  .btnMid{
+    width: 362.25px;
+    height: 67.88px;
+    background: #595959;
+    border-radius: 25.875px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0px 3.45px 4.3125px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34.5px;
+    line-height: 42px;
+  }
+  .btnSen{
+    width: 379.5px;
+    height: 67.88px;
+    background: #2D2E2E;
+    border-radius: 25.875px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0px 3.45px 4.3125px rgba(0, 0, 0, 0.25);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34.5px;
+    line-height: 42px;
+  }
