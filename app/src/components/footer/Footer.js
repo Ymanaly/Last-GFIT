@@ -12,7 +12,7 @@ function Footer() {
     <div className={classes.page}>
       <div className={classes.footer}>
         <div className={classes.footer__title}>
-            <span ><a className={classes.footerA} href='app/src/components/footer/Footer#'>Попробовать бесплатно</a></span>
+            <span><a className={classes.footerA} href='app/src/components/footer/Footer#'>Попробовать бесплатно</a></span>
             <span><a className={classes.footerA} href='app/src/components/footer/Footer#'>Помощь</a></span>
             <span><a className={classes.footerA} href='app/src/components/footer/Footer#'>Конфиденциальность</a></span>
         </div>

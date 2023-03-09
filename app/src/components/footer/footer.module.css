@@ -13,12 +13,10 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-  margin: 0 auto;
+  justify-content: space-around;
   margin-top: 60px;
-  width: 958px;
-  height: 38px;
+  width: 100%;
+  height: auto;
 }
 .footerA {
   text-decoration: none;
@@ -71,8 +69,11 @@
     color: blue;
   }
   .footer__title span a {
-    font-size: 12px;
+    font-size: 18px;
     color: grey;
+  }
+  .footer__icon{
+    height: 60px;
   }
   .footer__icon span {
     font-size: 12px;
@@ -81,3 +82,13 @@
     display: none;
   }
 }
+
+@media (max-width: 550px) {
+  .footer__title {
+    flex-direction: column;
+  }
+  .footer__title span{
+    margin: 10px 0;
+  }
+}
+

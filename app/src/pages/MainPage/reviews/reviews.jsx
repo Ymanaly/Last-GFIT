@@ -45,8 +45,7 @@ const Reviews = () => {
                                 С удовольствием хожу в ваш зал, очень нравятся условия, доброжелательные администраторы и уютная обстановка
                             </div>
                         </div>
-                    </div>
-                    <div className="container__item">
+
                         <div className="container__card">
                             <div className="bgImg">
                                 <img className='reviewImg' src={avaImg4}/>
