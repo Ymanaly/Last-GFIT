@@ -24,6 +24,30 @@ const AboutUs = () => {
     speed: 1800,
     autoplaySpeed: 0.2,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+    ]
+
   };
 
   return (

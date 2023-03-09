@@ -21,6 +21,7 @@ function Mobile() {
                 <a className={classes.btn} href="#">
                   CКАЧАТЬ
                 </a>
+                <div className={classes.mobileIcons}>
                 <div className={classes.play}>
                   <img src={playMarket} alt="" />
                   <h5>Google Play</h5>
@@ -28,6 +29,7 @@ function Mobile() {
                 <div className={classes.code}>
                   <img src={code} alt="" />
                   <h5>QR-код</h5>
+                </div>
                 </div>
               </div>
             </div>
