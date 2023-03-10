@@ -25,7 +25,7 @@ function Navbar() {
                         </Link>
                         <div className="headerBtn">
                           <Link to={'/tren'}><button className="headerButton Neon">Тренировки</button></Link>
-                            <button onClick={() =>{obj  .setModalChek(true)} } className="headerButton2 neon">Войти</button>
+                            <button onClick={() =>{obj.setModalChek(true)} } className="headerButton2 neon">Войти</button>
 
                             {/*<Link to={'/portfolio'}>*/}
                             {/*    <img src={iconPortfolio} alt=""/>*/}

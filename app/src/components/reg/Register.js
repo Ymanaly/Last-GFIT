@@ -1,10 +1,12 @@
-import React, {useEffect, useState, useContext, useRef} from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import './Register.modules.css'
 import google from './img/G.svg'
 import apple from './img/A.svg'
 import facebook from './img/F.svg'
-import Context from "../content/Context";
+import Context from "../content/Context"
 import svg from '../../pages/Payment/PayMent/imgs/krestik.svg'
+import { login } from '../../API'
+import { useNavigate } from 'react-router-dom'
 
 export const Modal = () => {
 
@@ -18,7 +20,6 @@ export const Modal = () => {
     const [passwordErrorInReg, setPasswordErrorInReg] = useState('(password) не может быть пустым')
     const [formValid, setFormValid] = useState(false)
 
-    console.log(objRend)
     const blurHandler = (e) => {
         switch (e.target.name) {
             case 'emailInReg':
@@ -51,8 +52,8 @@ export const Modal = () => {
 
     const passwordHandler = (e) => {
         setPasswordInReg(e.target.value)
-        if (e.target.value.length < 3 || e.target.value.length > 10) {
-            setPasswordErrorInReg('Пароль должен быть длиннее 3 и меньше 9')
+        if (e.target.value.length < 8 || e.target.value.length > 100) {
+            setPasswordErrorInReg('Пароль должен быть длиннее 8 и меньше 100')
             if (!e.target.value) {
                 setPasswordErrorInReg('Пароль не может быть пустым')
             }
@@ -70,16 +71,35 @@ export const Modal = () => {
     }, [emailErrorInReg, passwordErrorInReg])
 
 
-        return (
-            <>
+    const navigate = useNavigate()
 
-            <div id={'mainRegister'}  className={objRend.modalCheck
+    function handleLogin(username, password){
+        login({
+            username,
+            password
+        })
+        .then(res => {
+            if(res.message){
+                setPasswordErrorInReg('Логин или пароль неверный')
+            }else{
+                setPasswordErrorInReg('')
+                objRend.setUser(res)
+                objRend.setModalChek(false)
+                navigate('/portfolio')
+            }
+        })
+    }
+
+    return (
+        <>
+
+            <div id={'mainRegister'} className={objRend.modalCheck
                 ? "in_confirm in_show"
                 : "in_confirm"
             } >
-               <div className='RegisterX' onClick={()=>{objRend.setModalChek(false)}}>
-                   <img src={svg} alt=""/>
-               </div>
+                <div className='RegisterX' onClick={() => { objRend.setModalChek(false) }}>
+                    <img src={svg} alt="" />
+                </div>
                 <div className='main'>
                     Вход в аккаунт
                 </div>
@@ -93,9 +113,9 @@ export const Modal = () => {
                         onBlur={e => blurHandler(e)}
                         name='emailInReg'
                         className='inputRegister'
-                        type="text" placeholder='ЛОГИН'/>
+                        type="text" placeholder='ЛОГИН' />
                     {(emailDirtyInReg && emailErrorInReg) &&
-                        <div className='errorDivInReg' style={{color: "red"}}>{emailErrorInReg}</div>}
+                        <div className='errorDivInReg' style={{ color: "red" }}>{emailErrorInReg}</div>}
 
                     <input
                         maxLength='16'
@@ -104,24 +124,27 @@ export const Modal = () => {
                         onBlur={e => blurHandler(e)}
                         name='passwordInReg'
                         className='inputRegister'
-                        type="password" placeholder='ПАРОЛЬ'/>
+                        type="password" placeholder='ПАРОЛЬ' />
                     {(passwordErrorInReg && passwordDirtyInReg) &&
-                        <div className='errorDivInReg' style={{color: "red"}}>{passwordErrorInReg}</div>}
+                        <div className='errorDivInReg' style={{ color: "red" }}>{passwordErrorInReg}</div>}
 
                 </form>
 
                 <div className="regBox">
                     <button
                         disabled={!formValid}
-                        className='submit'>Войти
+                        className='submit'
+                        onClick={() => handleLogin(emailInReg, passwordInReg)}
+                    >
+                        Войти
                     </button>
                     <a className="" href="#">Забыли пароль?</a>
                 </div>
 
                 <div>
                     <div className='mainLogoRegister'>
-                        <img className='logoRegister1' src={google}/>
-                        <img className='logoRegister3' src={facebook}/>
+                        <img className='logoRegister1' src={google} />
+                        <img className='logoRegister3' src={facebook} />
                     </div>
                     <div className='mainLogoHRegister'>
                         <h5 className="logoHRegister1">Google</h5>
@@ -146,7 +169,7 @@ export const Modal = () => {
                 />
             </div></>
 
-        );
-};
+    )
+}
 
-export default Modal;
+export default Modal
