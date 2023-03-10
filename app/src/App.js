@@ -17,6 +17,7 @@ function App() {
     const [renderEl,setRender] = useState(false);
     const [modalCheck,setModalChek] =useState(false);
     const [modalCheck2,setModalChek2] =useState(false);
+    const [user, setUser] = useState({})
 
     function Rend(){
         if(renderEl == false){
@@ -34,7 +35,9 @@ function App() {
         modalCheck:modalCheck,
         setModalChek:setModalChek,
         modalCheck2:modalCheck2,
-        setModalChek2:setModalChek2
+        setModalChek2:setModalChek2,
+        user,
+        setUser,
     }
 
     return(
