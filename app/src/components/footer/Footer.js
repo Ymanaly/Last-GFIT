@@ -18,13 +18,13 @@ function Footer() {
         </div>
         <div className={classes.footer__links}>
             <div>
-                <a className={classes.footerA} href='app/src/components/footer/Footer#'><img src={youtube}/></a>
+                <a className={classes.footerA} href='https://youtube.com'><img src={youtube}/></a>
             </div>
             <div>
-            <a className={classes.footerA} href='app/src/components/footer/Footer#'><img src={facebook}/></a>
+            <a className={classes.footerA} href='https://ru-ru.facebook.com'><img src={facebook}/></a>
             </div>
             <div>
-            <a className={classes.footerA} href='app/src/components/footer/Footer#'><img src={instagram}/></a>
+            <a className={classes.footerA} href='https://www.instagram.com'><img src={instagram}/></a>
             </div>
         </div>
         <div className={classes.footer__icon}>

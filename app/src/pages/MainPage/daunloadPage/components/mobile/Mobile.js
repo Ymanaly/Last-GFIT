@@ -18,7 +18,7 @@ function Mobile() {
                 время и в любом месте!
               </p>
               <div className={classes.icons}>
-                <a className={classes.btn} href="#">
+                <a className={classes.btn} href="https://play.google.com">
                   CКАЧАТЬ
                 </a>
                 <div className={classes.mobileIcons}>
