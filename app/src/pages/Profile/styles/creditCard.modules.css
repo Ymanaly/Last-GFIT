@@ -55,3 +55,15 @@
     padding: 10px 50px;
     cursor: pointer;
 }
+
+@media (max-width: 850px) {
+    .creditCard_btn button {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .creditCard_title {
+        font-size: 20px;
+    }
+}

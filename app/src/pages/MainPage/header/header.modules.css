@@ -423,6 +423,22 @@
     margin-top: 20px;
   }
 }
+@media (max-width: 550px) {
+  .headerBtn{
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  .headerButton{
+    height: 40px;
+    font-size: 16px;
+    margin: 0 0 7px;
+  }
+  .headerButton2 {
+    height: 40px;
+    font-size: 16px;
+  }
+
+}
 
 @media (max-width: 475px) {
   .text {

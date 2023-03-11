@@ -10,7 +10,7 @@
 
 .CatalogContainer{
     display: flex;
-    width: 1138px;
+    width: 87%;
     margin: 0 auto;
     justify-content: space-between;
     column-gap: 170px;
@@ -134,12 +134,13 @@
     left: 0;
     background: rgba(40, 40, 40, 0.55);
     backdrop-filter: blur(12.5px);
-    height: 730px;
+    height: 100%;
     width: 100%;
     
 }
 
 .levels{
+    margin-top: 120px;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -174,5 +175,10 @@
 }
 
 
+@media (max-width: 730px) {
+    .CatalogContainer {
+        justify-content: center;
+    }
+}
 
   
