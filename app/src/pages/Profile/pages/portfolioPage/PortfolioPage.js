@@ -242,9 +242,7 @@ function PortfolioPage() {
 
     return (
         <div className="portfolio">
-            <div className="portfolio_con">
                 <div className="portfolio_bg">
-                    <div className="portfolio_overlay">
 
                         <Navbar/>
                         <div className="portfolio_block">
@@ -388,8 +386,6 @@ function PortfolioPage() {
                         <Footer/>
 
                     </div>
-                </div>
-            </div>
 
         </div>
     );

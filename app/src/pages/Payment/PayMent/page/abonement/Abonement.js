@@ -32,7 +32,7 @@ const cardsInner = [
 function Abonement() {
     return (
         <>
-        <Navbar/>
+        {/*<Navbar/>*/}
     <section className={stl.abonement}>
             <div className={stl.container}>
                 <div className={stl.abonement__inner}>

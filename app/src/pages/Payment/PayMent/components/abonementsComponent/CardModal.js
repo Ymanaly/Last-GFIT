@@ -7,6 +7,7 @@ import  master  from '../../imgs/master.svg'
 import  elsom  from '../../imgs/elsom.svg'
 import  visa  from '../../imgs/visa.svg'
 import  OMoi  from '../../imgs/oMoi.svg'
+import styl from '../../css/Abonement.module.css';
 import Button from '../UI/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { closeModal, setModal2 } from '../../store/slices/authSlice'
@@ -55,7 +56,7 @@ function CardModal() {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box
+            <Box className={styl.modalWin}
                 sx={{
                     outline: 'none',
                     width: '703px',
@@ -99,7 +100,7 @@ function CardModal() {
                     </Box>
                 </Box>
                 <h3>Укажите способ оплаты</h3>
-                <Box
+                <Box className={styl.modalWinBank}
                     sx={{
                         mt: '50px',
                         width: '100%',

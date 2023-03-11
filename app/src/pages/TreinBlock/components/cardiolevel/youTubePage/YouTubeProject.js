@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './youTube.module.css'
 import event from './youTubeImages/Frame 159.svg'
-import youTube from './youTubeImages/image 83.png'
+// import youTube from './youTubeImages/image 83.png'
 import star from './youTubeImages/star1.svg'
 import playButton from './youTubeImages/playcricle.svg'
 import Navbar from "../../../../../components/navbar/Navbar";
@@ -31,7 +31,11 @@ export default function YouTubeProject() {
           <div className={style.videoYoutube}>
             <h2>Начинающий: кардио</h2>
             <div className={style.lessonCardio}>
-              <img src={youTube} alt="" />
+              {/*<img src={youTube} alt="" />*/}
+              <iframe width="100%" height="550" src="https://www.youtube.com/embed/50kH47ZztHs"
+                      title="YouTube video player" frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen></iframe>
             </div>
               <p>Это уникальная, интенсивная  тренировка для похудения в домашних условиях, которая позволяет сразу сжечь пол ТЫСЯЧИ калорий! За пол часа!</p>
               <div  className={style.starButton}>

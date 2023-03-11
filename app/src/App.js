@@ -12,6 +12,7 @@ import YouTubeProject from "./pages/TreinBlock/components/cardiolevel/youTubePag
 import CatalogPageElementary from "./pages/TrainCatalog/Trening_catalog/page/CatalogPageElementary";
 import CatalogPageContinuing from "./pages/TrainCatalog/Trening_catalog/page/CatalogPageContinuing";
 import CatalogPageAdvanced from "./pages/TrainCatalog/Trening_catalog/page/CatalogPageAdvanced";
+import DocumentPageMain from "./pages/Documentation/DocumentPageMain";
 
 function App() {
     const [renderEl,setRender] = useState(false);
@@ -52,6 +53,7 @@ function App() {
                     <Route path={'/catalogContinuing'} element={<CatalogPageContinuing/>}/>
                     <Route path={'/catalogAdvanced'} element={<CatalogPageAdvanced/>}/>
                     <Route path={'/youtube'} element={<YouTubeProject/>}/>
+                    <Route path={'/document'} element={<DocumentPageMain/>}/>
                 </Routes>
             </BrowserRouter>
         </Context.Provider>
