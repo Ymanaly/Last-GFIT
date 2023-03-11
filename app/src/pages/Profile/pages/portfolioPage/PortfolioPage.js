@@ -233,8 +233,8 @@ function PortfolioPage() {
         setOpenSuccess(false);
     };
 
-    const portfolioMenu = ["Личная инфа", "Оплата", "Избранное"]
-    const [visible, setVisible] = useState('Личная инфа');
+    const portfolioMenu = ["Личная информация", "Оплата", "Избранное"];
+    const [visible, setVisible] = useState('Личная информация');
 
     const [gender, setGender] = useState("");
 
@@ -243,7 +243,6 @@ function PortfolioPage() {
     return (
         <div className="portfolio">
                 <div className="portfolio_bg">
-
                         <Navbar/>
                         <div className="portfolio_block">
                             {/*<h1 className="portfolio_title">Личный кабинет</h1>*/}
@@ -267,7 +266,7 @@ function PortfolioPage() {
                                             }
                                         </ul>
 
-                                        {visible === "Личная инфа" &&
+                                        {visible === "Личная информация" &&
                                             <div className="portfolio_info ">
 
                                                 <div className="portfolio_table">
