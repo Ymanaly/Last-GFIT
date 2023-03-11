@@ -11,6 +11,8 @@ import iconPlus from "../../icon/plus.svg";
 import iconCloseV2 from "../../icon/closeV2.svg";
 import Footer from "../../../../components/footer/Footer";
 import Navbar from "../../../../components/navbar/Navbar";
+import { useContext } from 'react'
+import Context from '../../../../components/content/Context'
 
 
 function Confirm({
@@ -236,6 +238,7 @@ function PortfolioPage() {
 
     const [gender, setGender] = useState("");
 
+    const context = useContext(Context)
 
     return (
         <div className="portfolio">
@@ -252,8 +255,7 @@ function PortfolioPage() {
                                     </div>
                                 </div>
                                 <div className="portfolio_box">
-                                    <h1 className="portfolio_name" onClick={() => setOpenName(true)}>Бегимай Аднаева
-                                    </h1>
+                                    <h1 className="portfolio_name" onClick={() => setOpenName(true)}>{context.user?.user ? context.user.user : 'Бегимай Аднаева'}</h1>
 
                                     <div className="portfolio_content privateVis">
                                         <ul className="portfolio_item">

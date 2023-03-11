@@ -15,10 +15,10 @@ function Mobile() {
             <div className={classes.mobile__text}>
               <p className='mobileP'>
                 Получите доступ к нашей полной библиотеке тренировок в любое
-                время и в любом месте — дома, в тренажерном зале и в пути.
+                время и в любом месте!
               </p>
               <div className={classes.icons}>
-                <a className={classes.btn} href="#">
+                <a className={classes.btn} href="https://play.google.com">
                   CКАЧАТЬ
                 </a>
                 <div className={classes.mobileIcons}>

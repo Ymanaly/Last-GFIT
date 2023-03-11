@@ -14,6 +14,8 @@ import apple from "./img/A.svg";
 import facebook from "./img/F.svg";
 
 import svg from '../../pages/Payment/PayMent/imgs/krestik.svg'
+import { register } from '../../API'
+import { useNavigate } from 'react-router-dom'
 export const RegistrationForm = () => {
 
     const objRend = useContext(Context)
@@ -64,6 +66,26 @@ export const RegistrationForm = () => {
         console.log(passwordInReg, similarInReg);
     }, [passwordInReg, similarInReg]);
 
+    
+    const navigate = useNavigate()
+
+    function handleRegister(email, username, password){
+        register({
+            email,
+            username,
+            password
+        })
+        .then(res => {
+            if(res.email){
+                setPasswordErrorInReg('')
+                objRend.setModalChek(false)
+                objRend.setModalChek2(false)
+                objRend.setUser(res)
+                navigate('/portfolio')
+            }
+        })
+    }
+
     return (
         <div id="mainRegister" className={'in_confirm in_show'}>
             <div className={'RegisterX'} onClick={()=>  objRend.setModalChek2(false)}><img src={svg} alt=""/></div>
@@ -73,7 +95,7 @@ export const RegistrationForm = () => {
 
             <form className="contInpRegister">
                 <input
-                    maxLength="18"
+                    maxLength="32"
                     onChange={(e) => emailHandler(e, setEmailInReg, setEmailErrorInReg)}
                     value={emailInReg}
                     onBlur={(e) => blurHandler(e)}
@@ -135,7 +157,11 @@ export const RegistrationForm = () => {
                 ) : null}
             </form>
             <div className="regBox2">
-                <button  disabled={!formValid} className="submit2">
+                <button
+                    disabled={!formValid}
+                    className="submit2"
+                    onClick={() => handleRegister(emailInReg, loginInReg, passwordInReg)}
+                >
                     Создать
                 </button>
                 {/*<a onClick={()=>{*/}

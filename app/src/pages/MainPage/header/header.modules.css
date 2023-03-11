@@ -423,6 +423,7 @@
     margin-top: 20px;
   }
 }
+
 @media (max-width: 550px) {
   .headerBtn{
     flex-wrap: wrap;
@@ -439,6 +440,7 @@
   }
 
 }
+
 
 @media (max-width: 475px) {
   .text {

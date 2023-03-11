@@ -101,6 +101,11 @@
 .code img {
   margin-top: -3px;
 }
+.mobileIcons{
+  display: flex;
+  margin: -44px;
+  gap: 40px
+}
 
 .mobile__img img {
   display: flex;
