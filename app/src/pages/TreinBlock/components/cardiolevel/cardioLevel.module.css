@@ -52,8 +52,8 @@
   .cardioCard {
     display: block;
     border-left: 2px dashed black;
-    width: 440px;
-    height: 400px;
+    width: 33.33%;
+    height: 480px;
     transition: 0.4s;
     z-index: 1;
     display: flex;
