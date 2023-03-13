@@ -11,14 +11,15 @@ import iconPlus from "../../icon/plus.svg";
 import iconCloseV2 from "../../icon/closeV2.svg";
 import Footer from "../../../../components/footer/Footer";
 import Navbar from "../../../../components/navbar/Navbar";
-import { useContext } from 'react'
+import {useContext} from 'react'
 import Context from '../../../../components/content/Context'
 
 
 function Confirm({
                      openName, handleName, openEmail, handleEmail,
-                     openCard, handleCard, openDel, handleDel,
-                     openOut, handleOut, openDelCard, handleDelCard,
+                     openNum, handleNum, openCard, handleCard,
+                     openDel, handleDel, openOut, handleOut,
+                     openDelCard, handleDelCard,
                      openSuccess, handleSuccess
                  }) {
 
@@ -69,6 +70,27 @@ function Confirm({
                 </div>
             </div>
             <div className="in_overlay" onClick={() => handleEmail(false)}/>
+
+            <div className={
+                openNum
+                    ? "in_confirm in_show"
+                    : "in_confirm"
+            }>
+                <div className="in_confirm_contents">
+                    <div className="modal_content">
+                        <h1 className="modal_title">Изменить номер телефона</h1>
+                        <img className="modal_icon-close" onClick={() => handleNum(false)} src={iconClose} alt=""/>
+                        <form className="modal_form-name">
+                            <label className="modal_input-name" htmlFor="name">Введите номер телефона</label>
+                            <input className="modal_input-email" type="name"/>
+                        </form>
+                        <div className="modal_btn modal_btn-num">
+                            <button>Продолжить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="in_overlay" onClick={() => handleNum(false)}/>
 
             <div className={
                 openDel
@@ -184,6 +206,7 @@ function PortfolioPage() {
 
     const [openName, setOpenName] = useState(false);
     const [openEmail, setOpenEmail] = useState(false);
+    const [openNum, setOpenNum] = useState(false);
     const [openDel, setOpenDel] = useState(false);
     const [openOut, setOpenOut] = useState(false);
     const [openCard, setOpenCard] = useState(false);
@@ -201,6 +224,12 @@ function PortfolioPage() {
             console.log("Add Invoice ...");
         }
         setOpenEmail(false);
+    };
+    const handleNum = (result) => {
+        if (result) {
+            console.log("Add Invoice ...");
+        }
+        setOpenNum(false);
     };
     const handleDel = (result) => {
         if (result) {
@@ -233,8 +262,8 @@ function PortfolioPage() {
         setOpenSuccess(false);
     };
 
-    const portfolioMenu = ["Личная инфа", "Оплата", "Избранное"]
-    const [visible, setVisible] = useState('Личная инфа');
+    const portfolioMenu = ["Личная информация", "Оплата", "Избранное"];
+    const [visible, setVisible] = useState('Личная информация');
 
     const [gender, setGender] = useState("");
 
@@ -242,150 +271,151 @@ function PortfolioPage() {
 
     return (
         <div className="portfolio">
-                <div className="portfolio_bg">
-
-                        <Navbar/>
-                        <div className="portfolio_block">
-                            {/*<h1 className="portfolio_title">Личный кабинет</h1>*/}
-                            <div className="portfolio_inner">
-                                <div className="portfolio_img">
-                                    <div className="portfolio_img-box">
-                                        <img className="portfolio_img-img" src={avatar} alt=""/>
-                                        <img className="portfolio_img-photo" src={iconPhoto} alt=""/>
-                                    </div>
-                                </div>
-                                <div className="portfolio_box">
-                                    <h1 className="portfolio_name" onClick={() => setOpenName(true)}>{context.user?.user ? context.user.user : 'Бегимай Аднаева'}</h1>
-
-                                    <div className="portfolio_content privateVis">
-                                        <ul className="portfolio_item">
-                                            {portfolioMenu.map(portfolio => (
-                                                <li className={visible === portfolio ? "portfolio_item-active" : ""}
-                                                    onClick={() => setVisible(portfolio)
-                                                    } key={portfolio}>{portfolio}</li>
-                                            ))
-                                            }
-                                        </ul>
-
-                                        {visible === "Личная инфа" &&
-                                            <div className="portfolio_info ">
-
-                                                <div className="portfolio_table">
-                                                    <p className="portfolio_info-title">Почта :</p>
-                                                    <p className="portfolio_info-text pit-active">begimaiabnaeva@gmail.com</p>
-                                                    <i className="portfolio_pencil" onClick={() => setOpenEmail(true)}>
-                                                        <img src={iconPencil} alt=""/>
-                                                    </i>
-
-
-                                                </div>
-
-                                                <div className="portfolio_table">
-                                                    <p className="portfolio_info-title">Номер телефона :</p>
-                                                    <p className="portfolio_info-text">+996 558 25 45 85</p>
-                                                    <i className="portfolio_pencil"
-                                                        // onClick={() => setOpenName(true)}
-                                                    >
-                                                        <img src={iconPencil} alt=""/>
-                                                    </i>
-                                                </div>
-
-                                                <div className="portfolio_table">
-                                                    <p className="portfolio_info-title">Пол :</p>
-                                                    <div className="portfolio_info-block portfolio_info-text">
-                                                        <label>
-                                                            <input className="portfolio_info-checkbox"
-                                                                   type="checkbox"
-                                                                   checked={gender === "male"}
-                                                                   onChange={() => setGender("male")}
-                                                            />
-                                                            Мужской</label>
-
-                                                        <label>
-                                                            <input className="portfolio_info-checkbox"
-                                                                   type="checkbox"
-                                                                   checked={gender === "female"}
-                                                                   onChange={() => setGender("female")}
-                                                            />
-                                                            Женский</label>
-
-                                                    </div>
-                                                </div>
-
-                                                <div className="portfolio_btn">
-                                                    <button onClick={() => setOpenOut(true)}>Выйти из аккаунта</button>
-                                                    <button onClick={() => setOpenDel(true)}>Удалить аккаунт</button>
-                                                </div>
-
-                                            </div>
-                                        }
-
-
-                                        {visible === "Оплата" &&
-                                            <div className="portfolio_info">
-                                                <h1 className="p_card-title">Мои карты</h1>
-                                                <div className="p_card">
-                                                    <div className="p_card-inner">
-
-
-                                                        <div className="p_card-info">
-                                                            <div className="p_card-img">
-                                                                <img src={iconCard} alt=""/>
-                                                            </div>
-                                                            <div className="p_card-content">
-                                                                <div className="p_card-number">4169**** **** **67</div>
-                                                                <div className="p_card-block">
-                                                                    <p className="p_card-text">Основная</p>
-                                                                    <a href="#"
-                                                                       onClick={() => setOpenDelCard(true)}>Удалить</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="p_card-button">
-                                                            <button className="p_card-btn"
-                                                                    onClick={() => setOpenCard(true)}><i><img
-                                                                src={iconPlus} alt=""/></i>добавить
-                                                                карту
-                                                            </button>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        }
-
-                                        {visible === "Избранное" &&
-                                            <div className="portfolio_info">
-                                                <div className="p_favorites_block">
-                                                    <div className="p_favorites_box">
-                                                        <h1>Кардио</h1>
-                                                        <p>30 мин</p>
-                                                        <button>Начать</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        }
-
-                                        <Confirm openName={openName} handleName={handleName}
-                                                 openEmail={openEmail} handleEmail={handleEmail}
-                                                 openCard={openCard} handleCard={handleCard}
-                                                 openDel={openDel} handleDel={handleDel}
-                                                 openOut={openOut} handleOut={handleOut}
-                                                 openDelCard={openDelCard} handleDelCard={handleDelCard}
-                                                 openSuccess={openSuccess} handleSuccess={handleSuccess}
-                                        />
-
-
-                                    </div>
-
-                                </div>
+            <div className="portfolio_bg">
+                <Navbar/>
+                <div className="portfolio_block">
+                    {/*<h1 className="portfolio_title">Личный кабинет</h1>*/}
+                    <div className="portfolio_inner">
+                        <div className="portfolio_img">
+                            <div className="portfolio_img-box">
+                                <img className="portfolio_img-img" src={avatar} alt=""/>
+                                <img className="portfolio_img-photo" src={iconPhoto} alt=""/>
                             </div>
                         </div>
-                        <Footer/>
+                        <div className="portfolio_box">
+                            <div className="portfolio_name-box">
+                                <h1 className="portfolio_name"
+                                    onClick={() => setOpenName(true)}>{context.user?.user ? context.user.user : 'Бегимай Аднаева'}</h1>
+                            </div>
+                            <div className="portfolio_content privateVis">
+                                <ul className="portfolio_item">
+                                    {portfolioMenu.map(portfolio => (
+                                        <li className={visible === portfolio ? "portfolio_item-active" : ""}
+                                            onClick={() => setVisible(portfolio)
+                                            } key={portfolio}>{portfolio}</li>
+                                    ))
+                                    }
+                                </ul>
 
+                                {visible === "Личная информация" &&
+                                    <div className="portfolio_info ">
+
+                                        <div className="portfolio_table">
+                                            <p className="portfolio_info-title">Почта :</p>
+                                            <p className="portfolio_info-text pit-active">begimaiabnaeva@gmail.com</p>
+                                            <i className="portfolio_pencil" onClick={() => setOpenEmail(true)}>
+                                                <img src={iconPencil} alt=""/>
+                                            </i>
+
+
+                                        </div>
+
+                                        <div className="portfolio_table">
+                                            <p className="portfolio_info-title">Номер телефона :</p>
+                                            <p className="portfolio_info-text">+996 558 25 45 85</p>
+                                            <i className="portfolio_pencil" onClick={() => setOpenNum(true)}>
+                                                <img src={iconPencil} alt=""/>
+                                            </i>
+                                        </div>
+
+                                        <div className="portfolio_table">
+                                            <p className="portfolio_info-title">Пол :</p>
+                                            <div className="portfolio_info-block portfolio_info-text">
+                                                <label>
+                                                    <input className="portfolio_info-checkbox"
+                                                           type="checkbox"
+                                                           checked={gender === "male"}
+                                                           onChange={() => setGender("male")}
+                                                    />
+                                                    Мужской</label>
+
+                                                <label>
+                                                    <input className="portfolio_info-checkbox"
+                                                           type="checkbox"
+                                                           checked={gender === "female"}
+                                                           onChange={() => setGender("female")}
+                                                    />
+                                                    Женский</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div className="portfolio_btn">
+                                            <button onClick={() => setOpenOut(true)}>Выйти из аккаунта</button>
+                                            <button onClick={() => setOpenDel(true)}>Удалить аккаунт</button>
+                                        </div>
+
+                                    </div>
+                                }
+
+
+                                {visible === "Оплата" &&
+                                    <div className="portfolio_info">
+                                        <h1 className="p_card-title">Мои карты</h1>
+                                        <div className="p_card">
+                                            <div className="p_card-inner">
+
+
+                                                <div className="p_card-info">
+                                                    <div className="p_card-img">
+                                                        <img src={iconCard} alt=""/>
+                                                    </div>
+                                                    <div className="p_card-content">
+                                                        <div className="p_card-number">4169**** **** **67</div>
+                                                        <div className="p_card-block">
+                                                            <p className="p_card-text">Основная</p>
+                                                            <a href="#"
+                                                               onClick={() => setOpenDelCard(true)}>Удалить</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="p_card-button">
+                                                    <button className="p_card-btn"
+                                                            onClick={() => setOpenCard(true)}><i><img
+                                                        src={iconPlus} alt=""/></i>добавить
+                                                        карту
+                                                    </button>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+
+                                {visible === "Избранное" &&
+                                    <div className="portfolio_info">
+                                        <div className="p_favorites_block">
+                                            {/*<div className="p_favorites_box">*/}
+                                            {/*    <h1>Кардио</h1>*/}
+                                            {/*    <p>30 мин</p>*/}
+                                            {/*    <button>Начать</button>*/}
+                                            {/*</div>*/}
+
+                                        </div>
+                                    </div>
+                                }
+
+                                <Confirm openName={openName} handleName={handleName}
+                                         openEmail={openEmail} handleEmail={handleEmail}
+                                         openNum={openNum} handleNum={handleNum}
+                                         openCard={openCard} handleCard={handleCard}
+                                         openDel={openDel} handleDel={handleDel}
+                                         openOut={openOut} handleOut={handleOut}
+                                         openDelCard={openDelCard} handleDelCard={handleDelCard}
+                                         openSuccess={openSuccess} handleSuccess={handleSuccess}
+                                />
+
+
+                            </div>
+
+                        </div>
                     </div>
+                </div>
+                <Footer/>
+
+            </div>
 
         </div>
     );

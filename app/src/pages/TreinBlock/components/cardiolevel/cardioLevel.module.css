@@ -10,7 +10,7 @@
   }
   
   .cardioText h2 {
-    padding-top: 150px;
+    padding-top: 120px;
     /* font-family: 'Inter'; */
     font-style: normal;
     font-weight: 600;
@@ -24,7 +24,7 @@
     position: relative;
     cursor: pointer;
     display: flex;
-    margin-top: 47px;
+    margin-top: 20px;
     justify-content: right;
     background: url('./cardioLevelImages/img1.png') no-repeat center/cover;
     backdrop-filter: rgba(0, 0, 0, 0.5);
@@ -52,8 +52,8 @@
   .cardioCard {
     display: block;
     border-left: 2px dashed black;
-    width: 440px;
-    height: 557px;
+    width: 33.33%;
+    height: 480px;
     transition: 0.4s;
     z-index: 1;
     display: flex;

@@ -12,7 +12,7 @@ const Header = () => {
                 <b/>" Начни сейчас! С нами <br/>
                 удобно, быстро и доступно "
             </h2>
-            <div className="portfolio">
+            <div className="headPortfolio">
                 <ul>
                     <li>
             <span className="text">
