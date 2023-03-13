@@ -37,6 +37,10 @@
   align-items: center;
 }
 
+.headerFlex a:last-child {
+  margin-left: 270px;
+}
+
 .headerButton {
   width: 287px;
   height: 54px;
@@ -225,7 +229,6 @@
 }
 
 .buttons {
-  margin-left: 283px;
   width: 284px;
   height: 74px;
   cursor: pointer;
@@ -273,7 +276,7 @@
   transition: all 0.5s;
 }
 
-.portfolio:hover .text {
+.headPortfolio:hover .text {
   opacity: 1;
   top: 0;
 }
@@ -314,7 +317,7 @@
 
 
 @media (max-width: 1200px) {
-  .buttons{
+  .headerFlex a:last-child{
     margin-left: 200px;
   }
   .text {
@@ -326,13 +329,13 @@
   .capital {
     font-size: 40px;
   }
-  .buttons{
+  .headerFlex a:last-child{
     margin-left: 150px;
   }
   .text {
     margin-top: 300px;
   }
-  .portfolio li {
+  .headPortfolio li {
     padding-top: 20px;
   }
   .span {
@@ -349,7 +352,7 @@
   .head {
     padding: 0 40px;
   }
-  .buttons{
+  .headerFlex a:last-child{
     margin-left: 100px;
   }
   .text {
@@ -384,7 +387,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  .buttons{
+  .headerFlex a:last-child{
     margin-left: 0;
   }
 }
