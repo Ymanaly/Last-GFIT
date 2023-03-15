@@ -14,6 +14,7 @@ import CatalogPageContinuing from "./pages/TrainCatalog/Trening_catalog/page/Cat
 import CatalogPageAdvanced from "./pages/TrainCatalog/Trening_catalog/page/CatalogPageAdvanced";
 import DocumentPageMain from "./pages/Documentation/DocumentPageMain";
 
+
 function App() {
     const [renderEl,setRender] = useState(false);
     const [modalCheck,setModalChek] =useState(false);
@@ -54,6 +55,7 @@ function App() {
                     <Route path={'/catalogAdvanced'} element={<CatalogPageAdvanced/>}/>
                     <Route path={'/youtube'} element={<YouTubeProject/>}/>
                     <Route path={'/document'} element={<DocumentPageMain/>}/>
+                    
                 </Routes>
             </BrowserRouter>
         </Context.Provider>
